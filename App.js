@@ -1,52 +1,43 @@
 import React, { Component } from 'react';
-import { ScrollView, Image,  Text } from 'react-native';
+import { FlatList, StyleSheet,  Text, View } from 'react-native';
 
 
-export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
-  _onPressButton(){
-    alert('You tapped the button!')
-  }
-  _onLongPressButton(){
-    alert('You long-pressed the button!')
-  }
+export default class FlatListBasics extends Component {
+
   render(){
 
     return (
-      <ScrollView>
-        <Text style={{fontSize:96}}>Scroll me plz</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Text style={{fontSize:96}}>If you like</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Text style={{fontSize:96}}>Scrolling dowm</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Text style={{fontSize:96}}>What's the best</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Text style={{fontSize:96}}>Framework around?</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/tiny_logo.png", width:64,height:64 }} />
-        <Text style={{fontSize:96}}>React Native</Text>
-      </ScrollView>
+      <View style={styles.container}>
+        <FlatList
+        data={[
+          {key: 'Devin'},
+          {key: 'Dan'},
+          {key: 'Dominic'},
+          {key: 'Jackson'},
+          {key: 'James'},
+          {key: 'Joel'},
+          {key: 'John'},
+          {key: 'Jillian'},
+          {key: 'Jimmy'},
+          {key: 'Julie'},
+        ]}
+        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      </View>
     );
   }
 } 
 
 
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    paddingTop:22
+  },
+  item:{
+    padding:10,
+    fontSize:38,
+    height:84,
+  }
+  
+})
